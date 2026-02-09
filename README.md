@@ -2,44 +2,46 @@
 LaLiga 2024–25 Analytics is an interactive dashboard project that converts season match, team, and player data into insights. It offers leaderboards, team-style profiles, efficiency metrics (attack/defense), and trend views by team to support scouting, tactical review.
 
 
-⚽ LaLiga Insights: 2024/25 Analytics Command Center
-LaLiga Insights is a professional-grade, full-stack data visualization platform that transforms raw football match and player data into actionable intelligence. Built with a FastAPI backend and a React frontend, it provides deep dives into team standings, player performance, and tactical trends.
+This README is designed to present your project as a professional-grade sports analytics tool. It covers the technical stack, the features you've built, and clear instructions for others (or your future self) to get it running.
 
-🚀 Core Features
-Live Standings & Season KPIs: Real-time league table including Goal Difference and Points, supported by a Season Summary bar (Total Goals, Avg Goals/Match).
+---
 
-Points Progression Timeline: A chronological line chart tracking the title race between giants like Barcelona, Real Madrid, and Atlético Madrid.
+# ⚽ LaLiga Insights: 2024/25 Analytics Command Center
 
-League Leaders Dashboard: Side-by-side bar charts for Top Scorers (Golden Boot) and Top Assists.
+LaLiga Insights is a professional-grade, full-stack data visualization platform that transforms raw football match and player data into actionable intelligence. Built with a **FastAPI** backend and a **React** frontend, it provides deep dives into team standings, player performance, and tactical trends.
 
-Team Performance Metrics: Visualization of Total Team Goals and a Home vs. Away Win distribution.
+## 🚀 Core Features
 
-Head-to-Head Match Center: Interactive tool to select two teams and compare their seasonal averages in goals, shots, and corners.
+* **Live Standings & Season KPIs**: Real-time league table including Goal Difference and Points, supported by a Season Summary bar (Total Goals, Avg Goals/Match).
+* **Points Progression Timeline**: A chronological line chart tracking the title race between giants like Barcelona, Real Madrid, and Atlético Madrid.
+* **League Leaders Dashboard**: Side-by-side bar charts for Top Scorers (Golden Boot) and Top Assists.
+* **Team Performance Metrics**: Visualization of Total Team Goals and a Home vs. Away Win distribution.
+* **Head-to-Head Match Center**: Interactive tool to select two teams and compare their seasonal averages in goals, shots, and corners.
+* **Scouting Radar**: A multi-dimensional radar chart to compare two players across metrics like Goals Per 90, Assists, and Playtime.
+* **Discipline Heatmap**: A dynamic aggression tracker that uses color intensity to identify the most disciplined (or aggressive) teams in the league.
 
-Scouting Radar: A multi-dimensional radar chart to compare two players across metrics like Goals Per 90, Assists, and Playtime.
+---
 
-Discipline Heatmap: A dynamic aggression tracker that uses color intensity to identify the most disciplined (or aggressive) teams in the league.
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
-Backend
-Python / FastAPI: High-performance API routing.
+### **Backend**
 
-Pandas: Data manipulation and aggregation of CSV/Excel files.
+* **Python / FastAPI**: High-performance API routing.
+* **Pandas**: Data manipulation and aggregation of CSV/Excel files.
+* **Uvicorn**: ASGI server implementation.
 
-Uvicorn: ASGI server implementation.
+### **Frontend**
 
-Frontend
-React.js: Modern component-based UI.
+* **React.js**: Modern component-based UI.
+* **Recharts**: Composable charting library for the Radar, Line, and Bar graphs.
+* **Lucide-React**: Clean, consistent iconography.
+* **Axios**: Promise-based HTTP client for API communication.
 
-Recharts: Composable charting library for the Radar, Line, and Bar graphs.
+---
 
-Lucide-React: Clean, consistent iconography.
+## 📁 Project Structure
 
-Axios: Promise-based HTTP client for API communication.
-
-📁 Project Structure
-Plaintext
-
+```text
 laliga_analysis/
 ├── backend/
 │   ├── main.py            # FastAPI endpoints & logic
@@ -52,3 +54,69 @@ laliga_analysis/
 │   │   └── index.css      # Global styles & Inter font
 │   └── package.json
 └── README.md
+
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Prerequisites
+
+* Python 3.8+
+* Node.js & npm
+
+### 2. Backend Setup
+
+```bash
+# Navigate to backend folder
+cd backend
+
+# Install dependencies
+pip install fastapi uvicorn pandas openpyxl
+
+# Start the server
+python -m uvicorn main:app --reload
+
+```
+
+*The API will be available at `http://127.0.0.1:8000`.*
+
+### 3. Frontend Setup
+
+```bash
+# Navigate to frontend folder
+cd frontend
+
+# Install dependencies
+npm install axios recharts lucide-react
+
+# Start the dashboard
+npm start
+
+```
+
+*The UI will be available at `http://localhost:3000`.*
+
+---
+
+## 📊 Data Requirements
+
+The system expects two primary data sources:
+
+1. **`LaLiga.csv`**: Must contain columns: `Date`, `HomeTeam`, `AwayTeam`, `FTHG`, `FTAG`, `FTR`, `HS`, `AS`, `HY`, `AY`, `HR`, `AR`.
+2. **`player.xlsx`**: An FBRef-style export containing player names, squads, and metrics (Gls, Ast, Gls_Per90, etc.).
+
+---
+
+## 🎨 UI Design Philosophy
+
+The dashboard utilizes a **Dark Mode** aesthetic (`#0f172a`) inspired by high-end sports betting and analytical platforms.
+
+* **Accent Blue (`#3b82f6`)**: Primary actions and data points.
+* **Golden Yellow (`#fbbf24`)**: Leadership and trophy-related metrics.
+* **Aggression Red (`#ef4444`)**: Discipline and high-intensity alerts.
+
+---
+
+**Would you like me to add a "Contribution" section or specific "Deployment" instructions for platforms like Vercel or Heroku?**
